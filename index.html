@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4c1870" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <header class="h-16 flex items-center bg-[#4c1870] px-3">
+      <div class="text-yellow-50 text-2xl font-[oxygen]">GenPass</div>
+    </header>
+    <div
+      class="h-40 flex justify-center items-start flex-col px-3 bg-purple-50"
+    >
+      <p class="font-open text-2xl font-bold text-purple-900">
+        Easy to remember,<br />Impossible to crack.
+      </p>
+      <img src="op.png" class="h-36 absolute right-3 transform" alt="" />
+    </div>
+    <div
+      class="min-h-[70px] flex items-center justify-center border-2 my-3 mx-3 rounded-md border-purple-100 bg-slate-100"
+    >
+      <p id="passwordHere" class="font-mmono text-purple-900 text-lg text-center py-3 px-3"></p>
+    </div>
+    <div class="flex px-3 gap-3">
+      <button
+        id="copyPass"
+        class="bg-purple-900 w-full text-yellow-50 px-3 py-3 rounded-md font-open text-lg flex items-center justify-center gap-2 active:scale-95"
+        data-clipboard-target="#passwordHere"
+      >
+        <span class="material-symbols-outlined"> content_copy </span> Copy
+      </button>
+      <button
+        id="generate"
+        class="bg-purple-900 w-full text-yellow-50 px-3 py-3 rounded-md font-open text-lg flex items-center justify-center gap-2 active:scale-95"
+      >
+        <span class="material-symbols-outlined"> restart_alt </span> Generate
+      </button>
+    </div>
+
+    <div class="w-full px-3 py-3 font-open text-purple-900">
+      <div
+        class="bg-purple-50 h-full border-2 border-purple-200 rounded-md p-3"
+      >
+        <div class="flex justify-between h-10 items-center">
+          <span>Number of words:</span>
+          <div
+            class="flex gap-0 bg-white rounded-md border-2 border-purple-200"
+          >
+            <button class="px-4 py-1.5 rounded-l-sm bg-purple-200" id="three">3</button>
+            <button class="px-4 py-1.5 border-l" id="four">4</button>
+            <button class="px-4 py-1.5 border-l rounded-r-sm" id="five">5</button>
+          </div>
+        </div>
+        <div class="h-0.5 bg-purple-100 w-full my-3"></div>
+        <div class="flex items-center">
+          <label for="inclNum" class="flex items-center cursor-pointer">
+            <!-- toggle -->
+            <div class="relative">
+              <input id="inclNum" type="checkbox" class="hidden" />
+              <!-- path -->
+              <div
+                class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
+              ></div>
+              <!-- crcle -->
+              <div
+                class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
+              ></div>
+            </div>
+          </label>
+          <div class="px-3 font-open text-purple-900">Include Number</div>
+        </div>
+        <div class="flex items-center mt-4">
+          <label for="inclUpper" class="flex items-center cursor-pointer">
+            <!-- toggle -->
+            <div class="relative">
+              <input id="inclUpper" type="checkbox" class="hidden" />
+              <!-- path -->
+              <div
+                class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
+              ></div>
+              <!-- crcle -->
+              <div
+                class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
+              ></div>
+            </div>
+          </label>
+          <div class="px-3 font-open text-purple-900">Include UpperCase</div>
+        </div>
+        <div class="flex items-center mt-4">
+          <label for="inclChar" class="flex items-center cursor-pointer">
+            <!-- toggle -->
+            <div class="relative">
+              <input id="inclChar" type="checkbox" class="hidden" />
+              <!-- path -->
+              <div
+                class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
+              ></div>
+              <!-- crcle -->
+              <div
+                class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
+              ></div>
+            </div>
+          </label>
+          <div class="px-3 font-open text-purple-900">
+            Include Special Character
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="PassGen.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
