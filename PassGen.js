@@ -25326,10 +25326,11 @@ const wordsArray = [
 let passwordBox = document.getElementById("passwordHere");
 let generateBtn = document.getElementById("generate");
 let clipboard = new ClipboardJS("#copyPass");
+let clipboard2 = new ClipboardJS("#copyPassword");
 
 document.getElementById("three").addEventListener("click", () => {
   length = 3;
-  generatePassword();
+  generatePassphrase();
   document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
   document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm bg-purple-200");
   document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
@@ -25338,7 +25339,7 @@ document.getElementById("three").addEventListener("click", () => {
 
 document.getElementById("four").addEventListener("click", () => {
   length = 4;
-  generatePassword();
+  generatePassphrase();
   document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm");
   document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l bg-purple-200");
   document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
@@ -25347,7 +25348,7 @@ document.getElementById("four").addEventListener("click", () => {
 
 document.getElementById("five").addEventListener("click", () => {
   length = 5;
-  generatePassword();
+  generatePassphrase();
   document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm");
   document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
   document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm bg-purple-200");
@@ -25357,20 +25358,20 @@ document.getElementById("five").addEventListener("click", () => {
 let length = 3;
 let inclNum = document.getElementById("inclNum").addEventListener("change", () => {
   inclNum = !inclNum;
-  generatePassword();
+  generatePassphrase();
 });
 
 let inclChar = document.getElementById("inclChar").addEventListener("change", () => {
   inclChar = !inclChar;
-  generatePassword();
+  generatePassphrase();
 });
 
 let inclUpper = document.getElementById("inclUpper").addEventListener("change", () => {
   inclUpper = !inclUpper;
-  generatePassword();
+  generatePassphrase();
 });
 
-function generatePassword() {
+function generatePassphrase() {
   let password = "";
 
   for (let i = 0; i < length; i++) {
@@ -25396,9 +25397,9 @@ function generatePassword() {
 
 generateBtn.addEventListener("click", 
   () => {
-    generatePassword();
+    generatePassphrase();
   }
 );
 
-generatePassword();
+generatePassphrase();
 console.log(inclNum)
