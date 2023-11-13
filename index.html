@@ -12,12 +12,12 @@
     />
     <title>Vite App</title>
   </head>
-  <body>
+  <body class="max-w-lg mx-auto sm:border-x-2 sm:border-b-2 border-purple-200">
     <header class="h-16 flex items-center bg-[#4c1870] px-3">
       <div class="text-yellow-50 text-2xl font-[oxygen]">GenPass</div>
     </header>
     <div
-      class="h-40 flex justify-center items-start flex-col px-3 bg-purple-50"
+      class="h-40 flex justify-center items-start flex-col px-3 bg-purple-50 relative"
     >
       <p class="font-open text-2xl font-bold text-purple-900">
         Easy to remember,<br />Impossible to crack.
@@ -62,14 +62,13 @@
         <div class="h-0.5 bg-purple-100 w-full my-3"></div>
         <div class="flex items-center">
           <label for="inclNum" class="flex items-center cursor-pointer">
-            <!-- toggle -->
             <div class="relative">
               <input id="inclNum" type="checkbox" class="hidden" />
-              <!-- path -->
+             
               <div
                 class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
               ></div>
-              <!-- crcle -->
+              
               <div
                 class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
               ></div>
@@ -79,14 +78,12 @@
         </div>
         <div class="flex items-center mt-4">
           <label for="inclUpper" class="flex items-center cursor-pointer">
-            <!-- toggle -->
+            
             <div class="relative">
               <input id="inclUpper" type="checkbox" class="hidden" />
-              <!-- path -->
               <div
                 class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
               ></div>
-              <!-- crcle -->
               <div
                 class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
               ></div>
@@ -96,14 +93,11 @@
         </div>
         <div class="flex items-center mt-4">
           <label for="inclChar" class="flex items-center cursor-pointer">
-            <!-- toggle -->
             <div class="relative">
               <input id="inclChar" type="checkbox" class="hidden" />
-              <!-- path -->
               <div
                 class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
               ></div>
-              <!-- crcle -->
               <div
                 class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
               ></div>
