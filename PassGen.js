@@ -25332,74 +25332,113 @@ document.getElementById("three").addEventListener("click", () => {
   length = 3;
   generatePassphrase();
   document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
-  document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm bg-purple-200");
-  document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
+  document
+    .getElementById("three")
+    .setAttribute("class", "px-4 py-1.5 rounded-l-sm bg-purple-200");
+  document
+    .getElementById("five")
+    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
 });
-
 
 document.getElementById("four").addEventListener("click", () => {
   length = 4;
   generatePassphrase();
-  document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm");
-  document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l bg-purple-200");
-  document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
-
+  document
+    .getElementById("three")
+    .setAttribute("class", "px-4 py-1.5 rounded-l-sm");
+  document
+    .getElementById("four")
+    .setAttribute("class", "px-4 py-1.5 border-l bg-purple-200");
+  document
+    .getElementById("five")
+    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
 });
 
 document.getElementById("five").addEventListener("click", () => {
   length = 5;
   generatePassphrase();
-  document.getElementById("three").setAttribute("class", "px-4 py-1.5 rounded-l-sm");
+  document
+    .getElementById("three")
+    .setAttribute("class", "px-4 py-1.5 rounded-l-sm");
   document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
-  document.getElementById("five").setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm bg-purple-200");
-
+  document
+    .getElementById("five")
+    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm bg-purple-200");
 });
 
 let length = 3;
-let inclNum = document.getElementById("inclNum").addEventListener("change", () => {
-  inclNum = !inclNum;
-  generatePassphrase();
-});
+let inclNum = document
+  .getElementById("inclNum")
+  .addEventListener("change", () => {
+    inclNum = !inclNum;
+    generatePassphrase();
+  });
 
-let inclChar = document.getElementById("inclChar").addEventListener("change", () => {
-  inclChar = !inclChar;
-  generatePassphrase();
-});
+let inclChar = document
+  .getElementById("inclChar")
+  .addEventListener("change", () => {
+    inclChar = !inclChar;
+    generatePassphrase();
+  });
 
-let inclUpper = document.getElementById("inclUpper").addEventListener("change", () => {
-  inclUpper = !inclUpper;
-  generatePassphrase();
-});
+let inclUpper = document
+  .getElementById("inclUpper")
+  .addEventListener("change", () => {
+    inclUpper = !inclUpper;
+    generatePassphrase();
+  });
+
+let chngSep = document
+  .getElementById("chngSep")
+  .addEventListener("change", () => {
+    chngSep = !chngSep;
+    generatePassphrase();
+  });
 
 function generatePassphrase() {
   let password = "";
+  addNumIndex = Math.floor(Math.random() * length);
+  addCharIndex = Math.floor(Math.random() * length);
 
   for (let i = 0; i < length; i++) {
+    if (inclChar) {
+      chars = "!@#$%^&*+<>?~";
+      selectedChar = chars.charAt(Math.floor(Math.random() * chars.length));
+      if (i == addCharIndex) {
+        password += selectedChar;
+      }
+    }
+
     let randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     password += randomWord;
-    password += " "
-  }
 
-  if (inclNum) {
-    password += Math.floor(Math.random() * 10);
-  }
+    if (inclNum) {
+      if (i == addNumIndex) {
+        password += Math.floor(Math.random() * 10);
+      }
+    }
 
-  if (inclChar) {
-    password += "!@#$%^&*()";
-  }
+    if (inclUpper) {
+      addUpperIndex = Math.floor(Math.random() * password.length);
+      password =
+        password.slice(0, addUpperIndex) +
+        password.charAt(addUpperIndex).toUpperCase() +
+        password.slice(addUpperIndex + 1);
+    }
 
-  if (inclUpper) {
-    password = password.toUpperCase();
+    if (chngSep && i != length - 1) {
+      password += "-";
+    }
+    else{
+      password += " ";
+    }
   }
-
   passwordBox.innerHTML = password;
 }
 
-generateBtn.addEventListener("click", 
-  () => {
-    generatePassphrase();
-  }
-);
+generateBtn.addEventListener("click", () => {
+  generatePassphrase();
+});
 
 generatePassphrase();
-console.log(inclNum)
+console.log(inclNum);

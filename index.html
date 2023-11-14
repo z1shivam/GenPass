@@ -16,8 +16,11 @@
     <header
       class="h-16 flex items-center bg-[#4c1870] px-3 justify-between fixed top-0 z-50 w-full"
     >
-      <div class="text-yellow-50 text-2xl font-[oxygen]">GenPass</div>
-      <div class="h-9 w-9"><img src="gitWhite.png" alt="" /></div>
+      <div class="text-white text-2xl font-[oxygen] flex items-center">
+        <span class="material-symbols-outlined pr-1"> enhanced_encryption </span
+        >GenPass
+      </div>
+      <div class="h-9 w-9"><a href="https://github.com/z1shivam/GenPass"><img src="gitWhite.png" alt="github icon" /></a></div>
     </header>
     <nav
       class="mt-16 w-full flex text-purple-900 font-open border-b-2 border-purple-300"
@@ -128,6 +131,22 @@
             </label>
             <div class="px-3 font-open text-purple-900">
               Include Special Character
+            </div>
+          </div>
+          <div class="flex items-center mt-4">
+            <label for="chngSep" class="flex items-center cursor-pointer">
+              <div class="relative">
+                <input id="chngSep" type="checkbox" class="hidden" />
+                <div
+                  class="toggle-path bg-gray-200 w-9 h-5 rounded-full shadow-inner"
+                ></div>
+                <div
+                  class="toggle-circle absolute w-3.5 h-3.5 bg-white rounded-full shadow inset-y-0 left-0"
+                ></div>
+              </div>
+            </label>
+            <div class="px-3 font-open text-purple-900">
+              Change Seperator to "-"
             </div>
           </div>
         </div>

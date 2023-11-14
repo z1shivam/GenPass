@@ -55,6 +55,7 @@ let putPassword = document.getElementById("putPassword");
 let charNumValue = document.getElementById("charNumValue");
 let generatePW = document.getElementById("generatePW");
 
+
 const generatePassword = () => {
   let generatedPassword = "";
   let passwordSet = "abcdefghijklmnopqrstuvwxyz";
