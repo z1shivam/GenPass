@@ -25388,6 +25388,8 @@ let inclUpper = document
     generatePassphrase();
   });
 
+  inclUpper= true;
+
 let chngSep = document
   .getElementById("chngSep")
   .addEventListener("change", () => {
@@ -25396,6 +25398,7 @@ let chngSep = document
   });
 
 function generatePassphrase() {
+
   let password = "";
   addNumIndex = Math.floor(Math.random() * length);
   addCharIndex = Math.floor(Math.random() * length);
@@ -25441,4 +25444,3 @@ generateBtn.addEventListener("click", () => {
 });
 
 generatePassphrase();
-console.log(inclNum);

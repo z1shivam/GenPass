@@ -86,3 +86,13 @@ lengthSlider.addEventListener("change", () => {
 
 generatePassword();
 generatePW.addEventListener("click", generatePassword);
+
+
+faqHeading = document.querySelectorAll(".faqHeading");
+faqAnswer = document.querySelectorAll(".faqAnswer");
+
+faqHeading.forEach((faqHeading) => {
+  faqHeading.addEventListener("click", () => {
+    faqHeading.nextElementSibling.classList.toggle("hidden");
+  });
+});
