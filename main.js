@@ -32,6 +32,7 @@ let pinclNum = document
     generatePassword();
     console.log("num",pinclNum)
   });
+  pinclNum = true;
 
 let pinclChar = document
   .getElementById("pinclChar")
@@ -40,6 +41,7 @@ let pinclChar = document
     generatePassword();
     console.log("char",pinclChar)
   });
+  pinclChar = true;
 
 let pinclUpper = document
   .getElementById("pinclUpper")
@@ -48,6 +50,7 @@ let pinclUpper = document
     generatePassword();
     console.log("upper",pinclUpper)
   });
+  pinclUpper = true;
 
 let lengthSlider = document.getElementById("lengthSlider");
 let lengthSliderVal = lengthSlider.value;
