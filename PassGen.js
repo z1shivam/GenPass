@@ -25399,7 +25399,7 @@ let chngSep = document
 
 const secureRandom = (count) => {
   let num = 0;
-  const min = 2 << 32 % count;
+  const min = 2 ** 32 % count;
   const rand = new Uint32Array(1);
 
   do {
