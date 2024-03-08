@@ -25397,32 +25397,44 @@ let chngSep = document
     generatePassphrase();
   });
 
+const secureRandom = (count) => {
+  let num = 0;
+  const min = 2 ** 32 % count;
+  const rand = new Uint32Array(1);
+
+  do {
+    num = crypto.getRandomValues(rand)[0];
+  } while (num < min);
+
+  return num % count;
+}
+
 function generatePassphrase() {
 
   let password = "";
-  addNumIndex = Math.floor(Math.random() * length);
-  addCharIndex = Math.floor(Math.random() * length);
+  addNumIndex = secureRandom(length);
+  addCharIndex = secureRandom(length);
 
   for (let i = 0; i < length; i++) {
     if (inclChar) {
       chars = "!@#$%^&*+<>?~";
-      selectedChar = chars.charAt(Math.floor(Math.random() * chars.length));
+      selectedChar = chars.charAt(secureRandom(chars.length));
       if (i == addCharIndex) {
         password += selectedChar;
       }
     }
 
-    let randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+    let randomWord = wordsArray[secureRandom(wordsArray.length)];
     password += randomWord;
 
     if (inclNum) {
       if (i == addNumIndex) {
-        password += Math.floor(Math.random() * 10);
+        password += secureRandom(10);
       }
     }
 
     if (inclUpper) {
-      addUpperIndex = Math.floor(Math.random() * password.length);
+      addUpperIndex = secureRandom(password.length);
       password =
         password.slice(0, addUpperIndex) +
         password.charAt(addUpperIndex).toUpperCase() +

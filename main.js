@@ -74,7 +74,7 @@ const generatePassword = () => {
   }
   for (let i = 0; i < lengthSliderVal; i++) {
     generatedPassword += passwordSet.charAt(
-      Math.floor(Math.random() * passwordSet.length)
+      secureRandom(passwordSet.length)
     );
   }
   putPassword.innerText = generatedPassword;
