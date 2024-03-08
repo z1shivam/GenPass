@@ -1,3 +1,23 @@
+// generate a random number [credit: @atoponce]
+const secureRandom = (count) => {
+  let num = 0;
+  const min = 2 ** 32 % count;
+  const rand = new Uint32Array(1);
+  do {
+    num = crypto.getRandomValues(rand)[0];
+  } while (num < min);
+  return num % count;
+};
+
+faqHeading = document.querySelectorAll(".faqHeading");
+faqAnswer = document.querySelectorAll(".faqAnswer");
+
+faqHeading.forEach((faqHeading) => {
+  faqHeading.addEventListener("click", () => {
+    faqHeading.nextElementSibling.classList.toggle("hidden");
+  });
+});
+
 const wordsArray = [
   "aa",
   "aardvark",
@@ -25322,137 +25342,3 @@ const wordsArray = [
   "zoom",
   "zooming",
 ];
-
-let passwordBox = document.getElementById("passwordHere");
-let generateBtn = document.getElementById("generate");
-let clipboard = new ClipboardJS("#copyPass");
-let clipboard2 = new ClipboardJS("#copyPassword");
-
-document.getElementById("three").addEventListener("click", () => {
-  length = 3;
-  generatePassphrase();
-  document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
-  document
-    .getElementById("three")
-    .setAttribute("class", "px-4 py-1.5 rounded-l-sm bg-purple-200");
-  document
-    .getElementById("five")
-    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
-});
-
-document.getElementById("four").addEventListener("click", () => {
-  length = 4;
-  generatePassphrase();
-  document
-    .getElementById("three")
-    .setAttribute("class", "px-4 py-1.5 rounded-l-sm");
-  document
-    .getElementById("four")
-    .setAttribute("class", "px-4 py-1.5 border-l bg-purple-200");
-  document
-    .getElementById("five")
-    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm");
-});
-
-document.getElementById("five").addEventListener("click", () => {
-  length = 5;
-  generatePassphrase();
-  document
-    .getElementById("three")
-    .setAttribute("class", "px-4 py-1.5 rounded-l-sm");
-  document.getElementById("four").setAttribute("class", "px-4 py-1.5 border-l");
-  document
-    .getElementById("five")
-    .setAttribute("class", "px-4 py-1.5 border-l rounded-r-sm bg-purple-200");
-});
-
-let length = 3;
-let inclNum = document
-  .getElementById("inclNum")
-  .addEventListener("change", () => {
-    inclNum = !inclNum;
-    generatePassphrase();
-  });
-
-let inclChar = document
-  .getElementById("inclChar")
-  .addEventListener("change", () => {
-    inclChar = !inclChar;
-    generatePassphrase();
-  });
-
-let inclUpper = document
-  .getElementById("inclUpper")
-  .addEventListener("change", () => {
-    inclUpper = !inclUpper;
-    generatePassphrase();
-  });
-
-  inclUpper= true;
-
-let chngSep = document
-  .getElementById("chngSep")
-  .addEventListener("change", () => {
-    chngSep = !chngSep;
-    generatePassphrase();
-  });
-
-const secureRandom = (count) => {
-  let num = 0;
-  const min = 2 ** 32 % count;
-  const rand = new Uint32Array(1);
-
-  do {
-    num = crypto.getRandomValues(rand)[0];
-  } while (num < min);
-
-  return num % count;
-}
-
-function generatePassphrase() {
-
-  let password = "";
-  addNumIndex = secureRandom(length);
-  addCharIndex = secureRandom(length);
-
-  for (let i = 0; i < length; i++) {
-    if (inclChar) {
-      chars = "!@#$%^&*+<>?~";
-      selectedChar = chars.charAt(secureRandom(chars.length));
-      if (i == addCharIndex) {
-        password += selectedChar;
-      }
-    }
-
-    let randomWord = wordsArray[secureRandom(wordsArray.length)];
-    password += randomWord;
-
-    if (inclNum) {
-      if (i == addNumIndex) {
-        password += secureRandom(10);
-      }
-    }
-
-    if (inclUpper) {
-      addUpperIndex = secureRandom(password.length);
-      password =
-        password.slice(0, addUpperIndex) +
-        password.charAt(addUpperIndex).toUpperCase() +
-        password.slice(addUpperIndex + 1);
-    }
-
-    if (chngSep && i != length - 1) {
-      password += "-";
-    }
-    else{
-      password += " ";
-    }
-  }
-  passwordBox.innerHTML = password;
-}
-
-generateBtn.addEventListener("click", () => {
-  generatePassphrase();
-});
-
-generatePassphrase();
