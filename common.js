@@ -9,8 +9,8 @@ const secureRandom = (count) => {
   return num % count;
 };
 
-faqHeading = document.querySelectorAll(".faqHeading");
-faqAnswer = document.querySelectorAll(".faqAnswer");
+const faqHeading = document.querySelectorAll(".faqHeading");
+const faqAnswer = document.querySelectorAll(".faqAnswer");
 
 faqHeading.forEach((faqHeading) => {
   faqHeading.addEventListener("click", () => {
