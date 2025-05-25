@@ -13,7 +13,7 @@ GenPass is a passphrase generator website that creates strong and secure passphr
 
 ## Usage
 
-1. Visit the GenPass website: [GenPass](https://z1shivam.github.io/GenPass/).
+1. Visit the GenPass website: [genpass.z1shivam.in](https://genpass.z1shivam.in/).
 2. Choose the number of words for your passphrase (3, 4, or 5).
 3. Select options for numbers, uppercase, and special characters.
 4. If needed, choose the hyphen option for space conversion.
